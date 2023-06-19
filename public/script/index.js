@@ -8,10 +8,14 @@ $(function () {
       data[key] = val
     }
 
+    $('#btn-icon').addClass('fa-spinner fa-spin').removeClass('fa-download')
+
     $.ajax({
-      url: `/api/download?${data['pin-board-url']}`,
+      url: `/download?url=${data['pin-board-url']}`,
       type: 'POST',
-      success: function (response) {},
+      success: function (response) {
+        $('#btn-icon').addClass('fa-download').removeClass('fa-spinner fa-spin')
+      },
       error: function (xhr, status, error) {
         console.error(error)
       }
