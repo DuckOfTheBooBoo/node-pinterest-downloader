@@ -131,6 +131,7 @@ dist
 
 # Debug files
 *eslintrc*
+nodemon.json
 
 # Binaries
 bin
