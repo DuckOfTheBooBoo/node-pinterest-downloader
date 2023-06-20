@@ -4,9 +4,14 @@ import { exec } from 'child_process'
 import { promisify } from 'util'
 import getUsernameAndPinBoard from '../utils/extractInfo'
 import zipDirectory from '../utils/zipDirectory'
+import crypto from 'crypto'
 
 const GALLERY_DL = path.join(__dirname, '..', '..', 'bin', 'gallery-dl.bin')
 const execPromise = promisify(exec)
+
+const generateUniqueIdentifier = (): string => {
+    return crypto.randomBytes(8).toString('hex')
+}
 
 const downloadPinBoard = async (req: Request, res: Response) => {
     const { url } = req.query

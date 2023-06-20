@@ -1,5 +1,5 @@
 import express,{ Router, Request, Response, NextFunction } from 'express';
-import downloadPinBoard from '../controller/downloadPinBoard.controller';
+import downloadPinBoard from '../controller/download.controller';
 
 const router: Router = express.Router();
 
