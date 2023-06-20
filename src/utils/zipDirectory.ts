@@ -5,7 +5,7 @@ import fs from 'fs'
 
 const execPromise = promisify(exec)
 
-const zipDirectory = async (pathParam: string, username: string, pinBoard: string): Promise<string> => {
+const zipDirectory = async (pathParam: string, username: string, pinBoard: string): Promise<{outPath: string, filename: string}> => {
     return new Promise((resolve, reject) => {
         const newPath: string = path.join(pathParam)
         const filename: string = `${username}-${pinBoard}.zip`
@@ -19,7 +19,7 @@ const zipDirectory = async (pathParam: string, username: string, pinBoard: strin
                     if (err) {
                         reject (err)
                     } else {
-                        resolve(outPath)
+                        resolve({outPath, filename})
                     }
                 })
             })

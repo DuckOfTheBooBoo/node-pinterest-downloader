@@ -33,7 +33,7 @@ const downloadPinBoard = async (req: Request, res: Response) => {
         const { stdout, stderr } = await execPromise(`${GALLERY_DL} ${url} -D ${directoryPath}`)
 
         zipDirectory(directoryPath, info.username, info.pinBoard)
-            .then((outPath) => {
+            .then(({outPath, filename}) => {
 
                 const fileId = generateUniqueIdentifier()
                 temporaryFiles.set(fileId, {
@@ -43,6 +43,7 @@ const downloadPinBoard = async (req: Request, res: Response) => {
                 res.status(200).json({
                     status: 'success',
                     message: 'successfully downloaded the pin board',
+                    filename: filename,
                     downloadUrl: `/download/${fileId}`
                 })
             })
