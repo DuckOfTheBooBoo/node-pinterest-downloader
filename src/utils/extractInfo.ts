@@ -3,18 +3,18 @@ type Info = {
     pinBoard: string,
 }
 
-const getUsernameAndPinBoard = (url: any): Info | undefined => {
+const getUsernameAndPinBoard = (url: any) => {
 
-    if (url) {
-        const sections: string[] = url.split('/').filter((string: any) => string)
-        const info: Info = {
-            username: sections[2],
-            pinBoard: sections[3],
-        }
-    
-        return info
+    const sections: string[] = url.split('/').filter((string: any) => string)
+    const info: Info = {
+        username: sections[2],
+        pinBoard: sections[3],
     }
-    return undefined
+    
+    return info
 }
 
 export default getUsernameAndPinBoard
+
+
+
