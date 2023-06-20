@@ -133,5 +133,8 @@ dist
 *eslintrc*
 nodemon.json
 
+# VSCode
+*.code-workspace
+
 # Binaries
 bin

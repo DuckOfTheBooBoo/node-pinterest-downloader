@@ -6,7 +6,8 @@ const app: Application = express();
 const PORT: number = 8080;
 
 app.use('/public', express.static(path.join(__dirname, '..', 'public')));
-app.set('view engine', 'html');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(router);
 
