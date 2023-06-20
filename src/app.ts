@@ -4,16 +4,17 @@ import path from 'path';
 import fs from 'fs';
 import axios from 'axios';
 import { promisify } from 'util';
+import { renderFile } from 'ejs'
 
 const app: Application = express();
 const PORT: number = 8080;
 const GALLERY_DL_URL: string = 'https://github.com/mikf/gallery-dl/releases/download/v1.25.6/gallery-dl.bin'
-const FILE_PATH = path.join(__dirname, '..', 'bin', 'gallery-dl.bin');
+const FILE_PATH: string = path.join(__dirname, '..', 'bin', 'gallery-dl.bin');
 
 const fsAccessAsync = promisify(fs.access);
 
 app.use('/public', express.static(path.join(__dirname, '..', 'public')));
-app.engine('html', require('ejs').renderFile);
+app.engine('html', renderFile);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(router);
@@ -21,7 +22,7 @@ app.use(router);
 // Download gallery-dl bin
 async function checkGalleryDlExist(): Promise<boolean> {
     try {
-        await fsAccessAsync(path.join(__dirname, FILE_PATH));
+        await fsAccessAsync(FILE_PATH);
         console.log('gallery-dl.bin exists');
         return true
     } catch (err) {
