@@ -25,6 +25,7 @@ body {
 }
 
 .form-container {
+    text-align: center;
     padding: 5px;
 }
 
@@ -51,4 +52,30 @@ body {
 .form-container button:active {
     transition: none;
     background-color: rgb(169, 169, 169);
+}
+
+.download-container {
+    display: none;
+    position: relative;
+    margin: 0 25px;
+}
+
+.download-container a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(2, 215, 2);
+    border: 1px solid rgb(2, 215, 2);
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+#download-link i {
+    margin-left: 10px;
+    margin-top: 3px;
+    font-size: 16px;
 }
