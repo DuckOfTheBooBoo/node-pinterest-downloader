@@ -135,6 +135,7 @@ nodemon.json
 
 # VSCode
 *.code-workspace
+.vscode
 
 # Binaries
 bin
