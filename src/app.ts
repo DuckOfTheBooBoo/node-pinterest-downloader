@@ -5,6 +5,7 @@ import fs from 'fs';
 import axios from 'axios';
 import { promisify } from 'util';
 import { renderFile } from 'ejs'
+require('pretty-error').start();
 
 const app: Application = express();
 const PORT: number = 8080;
