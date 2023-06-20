@@ -139,3 +139,9 @@ nodemon.json
 
 # Binaries
 bin
+
+# PlantUML
+diagram
+
+# Raw files
+raw
